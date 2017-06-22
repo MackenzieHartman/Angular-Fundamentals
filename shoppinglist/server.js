@@ -11,6 +11,7 @@ app.get('/', function(req, res){
 
 http.listen(process.env.PORT || 3000, function(){						// Opening port 3000
 	console.log('the application is listening on port 3000');			// 
-})
+}) 
+
 
 // WebServer for application
