@@ -1,6 +1,8 @@
 angular.module('myApp')
 
-.controller('ShoppingListController', ['$scope', 'ShoppingListItems', function($scope, ShoppingListItems){
+.controller('ShoppingListController', ['$scope', 
+									   'ShoppingListItems', 
+									    function($scope, ShoppingListItems){
 	var shoplist = $scope; 
 
 	shoplist.items = ShoppingListItems.getList();
@@ -8,8 +10,10 @@ angular.module('myApp')
 	shoplist.addItem = function(newItem){
 		shoplist.items.push({
 			name: shoplist.newItem.name,
+			store: shoplist.newItem.store,
 			qty: shoplist.newItem.qty,
-			priority: shoplist.newItem.priority
+			price: shoplist.newItem.price,
+			// priority: shoplist.newItem.priority
 			})
 	};
 

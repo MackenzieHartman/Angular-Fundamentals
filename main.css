@@ -1,13 +1,14 @@
 nav ul {
-	list-style-type: none;		/*removes bullet points from list*/
+	list-style-type: none;		removes bullet points from list
 	margin: 00 10px 0;
 	padding: 0;
 	overflow: hidden;
 	background-color: #333;
+	text-align: center
 }
 
 nav li {
-	float: left;
+	float: center;
 }
 
 nav li a {
@@ -15,7 +16,7 @@ nav li a {
 	color: white;
 	text-align: center;
 	padding: 14px 16px;
-	text-decoration: none;		/*links will no longer be underlined*/
+	text-decoration: none;		links will no longer be underlined
 }
 
 nav li a:hover {
@@ -23,10 +24,10 @@ nav li a:hover {
 }
 
 li {
-	list-style: none;				/*removes bullet points from list*/
+	list-style: none;				removes bullet points from list
 }
 
-button {
+/*button {
 	border-radius: 5px;
 	border: 1px solid #d3d3d3;
 	background-color: white;
@@ -35,7 +36,7 @@ button {
 
 button:hover {
 	cursor: pointer;
-}
+}*/
  
  #remove {
  	background-color: transparent;	
@@ -43,3 +44,287 @@ button:hover {
  	color: #AA0000;
  	font-size: 	14px;
  }
+
+ /*===============================================================================================================*/
+
+@import "compass/css3";
+
+*, *:before, *:after {
+  @include box-sizing(border-box);
+}
+
+$red: #fb887c;
+$green: #AFC7B9;
+$navy: #34495e;
+
+@import url("https://www.markmurray.co/codepen/customstyle.css"), url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+
+html, body {
+  background: $green;
+  font-family: 'Lato', sans-serif;
+  height: 100%;
+  padding: 1em;
+}
+
+.left { text-align: left!important }
+.center { text-align: center!important }
+.right { text-align: right!important }
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.box {
+  width: 49%;
+  background: #f3f3f3;
+  margin: 0 auto 2em auto;
+  overflow: auto;
+  padding: 1em;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: top;
+  
+    &:first-child{
+      margin-right: 1%;
+    }
+}
+
+h1 {
+  color: #3a3a3a;
+  text-align: center;
+  margin: 0;
+}
+
+table {
+  border: none;
+  outline: none;
+  width: 100%;
+  margin: 0.5em 0 1em;
+  
+  tr.table-header {
+    td {
+      font-size: 0.7em;
+      font-weight: bolder;
+    }
+  }
+  
+  td {
+    padding: 0.75em 0.5em;
+    text-align: center;
+display:table-cell;
+vertical-align:middle;
+  }
+  
+  td:first-child {
+    text-align: left;
+
+  }
+  
+  td:nth-child(3){
+    text-align: center;
+  }
+  
+  td:last-child, td:nth-child(4){
+    text-align: right;
+  }
+  
+  tr:nth-child(2n+2){
+    background: darken(#eee, 1%); 
+  }
+}
+
+.searchButton {
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  outline: none;
+  padding: 1em;
+  border-radius: 3px;
+  font-weight: 300;
+  font-size: 0.8em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  position: relative;
+}      
+
+::placeholder {
+  color: #D0CCCC;
+}
+
+
+.margin-right {
+  margin-right: 1%;
+}
+
+.half {
+  width: 49.5%;
+
+/*  display: inline-block;*/
+  
+  input {
+    width: 100%;
+  }
+}
+
+.half:first-child {
+/*  margin-right: 2%;*/
+}
+
+.selected {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.dollar {
+/*  position: relative;
+  display: inline-block;*/
+}
+
+.dollar input {
+  padding-left: 2em; 
+  color:#D1D5;
+}
+
+.dollar span {
+/*  position: absolute;*/
+  display: block;
+  padding: 3px 3px 3px 7px;
+  pointer-events: none;
+  left: 5px; top: 13px;
+  color: #D3D3D3;
+/*  z-index: 1; */
+}
+   
+.searchButton.full {
+  width: 100%;
+}
+
+.list {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  
+  ul {
+    
+    li {
+      margin: 1em 0;
+    }
+  }
+}
+
+input[type='checkbox']{
+ /* background: transparent;*/
+  border: 2px solid #3a3a3a;
+  padding: 0.2em;
+  font-size: 1em;
+}
+
+button.clear {
+  background: lighten(#3f5872, 6%);
+  border-bottom: 4px solid darken(#2b3c4e, 5%);
+}
+
+button.clear:hover {
+  background: lighten($navy, 2%);
+  border-bottom: 2px solid darken($navy, 5%);
+}
+
+button {
+  margin: 0.25em 0;
+ /* display: block;*/
+  outline: none;
+  background: $red;
+  border: none;
+  padding: .5em 1em 1em;
+  border-radius: 6px;
+  width: 160px;
+  height: 30px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-bottom: 4px solid darken($red, 5%);
+  position: relative;
+  bottom: 70px;
+
+    &:hover {
+      border-bottom: 2px solid darken($red, 5%);
+      margin-bottom: 0.9em;
+      @include box-shadow(inset 0 0 10px 0px rgba(black, 0.2));
+    }
+  
+}
+
+.cost {
+  margin-bottom: 1em;
+  
+  span {
+    padding: 0.5em;
+    
+    &:first-child {
+      float: left;
+    }
+    
+    &:nth-child(2){
+      float: right;
+      vertical-align: baseline;
+    }
+  }
+}
+
+.total {
+  
+  background: $red;
+  color: white;
+  font-weight: bolder;
+  border-radius: 5px;
+}
+
+i {
+    vertical-align: baseline;
+    margin-right: 0.5em;
+    border-radius: 50%;
+    width: 0.5em; height: 0.5em;
+    padding: 0.5em;
+    font-size: 0.8em;
+    color: white;
+}
+
+i.icon-checkmark {
+  background: green;
+}
+
+i.icon-cross {
+  background: red;
+}
+
+i.delete {
+  color: lighten($red, 8%);
+  background: transparent;
+  font-size: 1.1em;
+  vertical-align: sub;
+  cursor: pointer;
+  
+  &:hover {
+    color: darken($red, 8%);
+  }
+}
+
+@media (max-width: 800px) {
+  .box {
+    width: 100%;
+/*    display: block;*/
+  }
+}
+
+
+
+/* Clearfix */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}

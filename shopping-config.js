@@ -1,9 +1,10 @@
 // Anything inside of the square brackets are a service that will be included into our application and ngRoute is a service built into Angular
+// The board model starts here.....
 var app = angular.module('myApp', ['ngRoute'])
 	
 	.config(['$routeProvider', function($routeProvider){
 		$routeProvider
-		// WHen a user reaches my root page they will be navigated to the home.html
+		// When a user reaches my root page they will be navigated to the home.html
 			.when('/', {
 				templateUrl: "views/home.html"
 			}).otherwise({

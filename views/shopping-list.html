@@ -1,10 +1,10 @@
-<form ng-submit='addItem(newItem)' name="list">	<!-- Any type of form whos purpose is to host data -->
+<!-- <form ng-submit='addItem(newItem)' name="list">	Any type of form whos purpose is to host data
 <br>
 	<label>Item</label>
-	<input type="text" placeholder="Item" ng-model="newItem.name">	<!-- Building out a object that ha three properties -->
+	<input type="text" placeholder="Item Name"  style="text-align:center" ng-model="newItem.name"<br>	Building out a object that ha three properties
 
 	<label>Quantity</label>
-	<input type="number" placeholder="Qty" ng-model="newItem.qty">
+	<input type="number" placeholder="Quantity" style="text-align:center" ng-model="newItem.qty">
 	
 	<label>Priority</label>
 	<select ng-model="newItem.priority">
@@ -14,18 +14,18 @@
 
 	<button type="submit">Add</button>
 </form>
-<!-- The <p> tag -->
+The <p> tag
 
 <p>{{list}}</p>
 
 <h3>Shopping List</h3>
-<button ng-click="order = 'qty'" > Order by Quantity</button>				<!-- Angular directives -->
+<button ng-click="order = 'qty'" > Order by Quantity</button>				Angular directives
 <button ng-click="order = 'name'"> Order by Name</button>		
 <button ng-click="order = 'priority'"> Order by Priority</button>	
 <div class="card">
 		<div class= "card-block">
 				<ul>	
-					<li ng-repeat="item in items | orderBy: order">				<!-- "|" is the filter -->
+					<li ng-repeat="item in items | orderBy: order">				"|" is the filter
 						qty: {{item.qty}} -
 						name: {{item.name}} -
 						priority: {{item.priority}}
@@ -35,4 +35,319 @@
 				</ul>	
 		</div>
 </div>
-<button ng-click="removeAll()">Remove All></button>
+<button ng-click="removeAll()">Remove All></button> -->
+
+<!-- ======================================================================================================= -->
+ 
+<!-- <form ng-submit='addItem(newItem)' name="list" style="text-align:center">	
+<br>
+	<label></label>
+	<input type="text" placeholder="Item Name" style="text-align:center" ng-model="newItem.item">
+	<input type="text" placeholder="Store Name" style="text-align:center" ng-model="newItem.store">
+		<br>
+		<br>
+	<label></label>
+	<input type="number" placeholder="Quantity" style="text-align:center" ng-model="newItem.qty">
+	<input type="number" name="Currency" min="0" max="9999" step="0.01" size="35" style="width: 12em; text-align:center" placeholder="$ Price (each)" ng-model="newItem.price">
+		<br>
+		<br>
+	<label>Priority</label>
+	<select ng-model="newItem.priority">
+			<option>low</option>
+			<option>high</option>
+	</select>
+	<button type="submit">Add Item</button>
+		<br>
+	
+</form>
+
+
+<p>{{list}}</p>
+<br>
+<h3 style="text-align:center">Shopping List</h3>	
+<div class="card">
+		<div class= "card-block">
+				<ul>
+					<h4 style= "text-align: center"> Order By </h4>	
+					<li ng-repeat="item in items | orderBy: order">	
+						item: {{item.item}} - 			
+						store: {{item.store}} -
+						qty: {{item.qty}} 
+						price: {{item.price | currency:"$"}} 
+						priority: {{item.priority}} 
+						<button id= "remove" ng-click="removeItem(item)"><b>X</b></button>
+
+					</li>
+				</ul>	
+		</div>
+</div>
+<div style= "display:center">
+<button ng-click="order = 'name'" style="text-align:center"> Item Name </button>
+<button ng-click="order = 'store'" style="text-align:center"> Store Name </button>
+<button ng-click="order = 'qty'" style="text-align:center"> Quantity </button>
+<button ng-click="order = 'price'" style="text-align:center"> Price </button>	
+<button ng-click="order = 'priority'" style="text-align:center"> Priority </button>			
+	<br>
+	<br>	
+<button ng-click="removeAll()">Clear Shopping List</button>
+</div> -->
+<!-- ======================================================================================================================== -->
+<!-- TABLE -->
+
+<!-- <form ng-submit='addItem(newItem)' name="list" style="text-align:center">	
+	<div class="container"> 
+
+	<div class="box margin-right" id="shopping-list">
+
+	<div class="margin-left">
+		<input type="text" class="searchButton" placeholder="Item Name" style="text-align:center" ng-model="newItem.name">
+	</div>
+
+	<div class="half">
+		<input type="text" class="searchButton" placeholder="Store Name" style="text-align:center" ng-model="newItem.store">
+	</div>
+
+	<div class="half margin-right">
+		<input type="number"  class="searchButton margin-right" placeholder="Quantity" style="text-align:center" ng-model="newItem.qty">
+	</div>
+
+	<div class="dollar half">
+		<input type="number" class="searchButton" name="Currency" min="0" max="9999" step="0.01" size="35" style="width: 12em; text-align:center" placeholder="$ Price (each)" ng-model="newItem.price">
+	</div> -->
+	
+<!-- 	<label>Priority</label>
+	<select ng-model="newItem.priority">
+			<option>low</option>
+			<option>high</option>
+	</select> -->
+	<!-- <button type="submit">Add Item</button>
+		<br>
+	
+</form>
+ -->
+
+<!-- <p>{{list}}</p> -->
+<!-- <br>
+<h3>Shopping List</h3>	
+	<div class="list">
+		<table border="0" cellspacing="0">
+		    <tr class="table-header">
+		        <td></td>
+		        <td class="left">Item Name</td>
+		        <td class="left">Shop</td>
+		        <td class="center">Price</td>
+		        <td>Quantity</td>
+		        <td class="center">Delete</td>
+		    </tr>
+		    <tr ng-repeat="item in list | orderBy: '-checked':true">
+		        <td><input ng-show="!item.checked" ng-checked="item.checked" ng-click="add(item, list)" type='checkbox' checklist-value="item.checked"></td>
+		        <td ng-class="{selected: item.checked==true}">{{item.name}}</td>
+		        <td ng-class="{selected: item.checked==true}" class="left">{{item.shop}}</td>
+		        <td ng-class="{selected: item.checked==true}">{{item.price | currency:"$"}}</td>
+		        <td ng-class="{selected: item.checked==true}" class="center">{{item.quantity}}</td>
+		        <td><i class="icon-cross delete" ng-click="remove(item)"></i></td>
+		    </tr> -->
+
+		<!-- <h4 style= "text-align: center"> Order By </h4>	
+					<tr ng-repeat="item in items | orderBy: order">	
+						<td item:>{{item.name}} </td>
+						<td store:> {{item.store}} </td>
+						<td price:> {{item.price | currency:"$"}} </td>
+						<td qty:> {{item.quantity}} </td>
+						<td priority:> {{item.priority}} </td>
+						<td><button id= "remove" ng-click="removeItem(item)"><b><i class="icon fa-trash"></button></td> -->
+
+
+
+
+<!-- <div class="card">
+		<div class= "card-block">
+				<ul>
+					<h4 style= "text-align: center"> Order By </h4>	
+					<li ng-repeat="item in items | orderBy: order">	
+						item: {{item.item}} - 			
+						store: {{item.store}} -
+						qty: {{item.qty}} 
+						price: {{item.price | currency:"$"}} 
+						priority: {{item.priority}} 
+						<button id= "remove" ng-click="removeItem(item)"><b>X</b></button>
+
+					</li>
+				</ul>	
+		</div>
+</div> -->
+<!-- <div style= "display:center">
+<button ng-click="order = 'name'" style="text-align:center"> Item Name </button>
+<button ng-click="order = 'store'" style="text-align:center"> Store Name </button>
+<button ng-click="order = 'qty'" style="text-align:center"> Quantity </button>
+<button ng-click="order = 'price'" style="text-align:center"> Price </button>	
+<button ng-click="order = 'priority'" style="text-align:center"> Priority </button>			
+	<br>
+	<br> -->	
+<!-- <button ng-click="removeAll()">Clear Shopping List</button>
+</div> -->
+
+
+<!-- =================================================================================================================== -->
+<!-- TABLE HEADER -->
+
+<form ng-submit='addItem(newItem)' name="list" style="text-align:center">	
+	<div class="container"> 
+		<br>
+	<div class="box margin-right" id="shopping-list">
+	<h1> Shopping List </h1>
+
+<!-- =================================================================================================================== -->
+<!-- INPUTS -->
+
+		<div class="margin-left" style="position: relative; right: 20%; top: 30px">
+			<input type="text" class="searchButton" placeholder="Item Name" color: gray style="text-align:center" ng-model="newItem.name">
+		</div>
+
+		<div class="half" style="position: relative; left: 45%; bottom: 19px">
+			<input type="text" class="searchButton" placeholder="Store Name" style="text-align:center" ng-model="newItem.store">
+		</div>
+
+		<div class="dollar half" style="position: relative; left: 5%; bottom: 12px">
+			<input type="number" class="searchButton" name="Currency" min="0" max="9999" step="0.01" size="35" style="width: 12em; text-align:center" placeholder="$ Price (each)" ng-model="newItem.price">
+		</div>
+
+		<div class="half margin-right" style="position: relative; left: 45%; bottom: 60px">
+			<input type="number"  class="searchButton" placeholder="Quantity" style="text-align:center" ng-model="newItem.qty">
+		</div>
+
+<!-- =================================================================================================================== -->
+<!-- ADD BUTTON -->
+
+		<button type="submit" style="position: relative; right: 0%; bottom: 50px">Add Item</button>
+
+<!-- =================================================================================================================== -->
+<!-- ORDER BY: -->
+
+			<br>
+	<div style= "display:center">
+		<h4 style= "position: relative; bottom: 52px"> Order By </h4>
+			<button ng-click="order = 'item name'" style="text-align:center"> Item </button>	
+			<button ng-click="order = 'store'" style="text-align:center"> Store </button>
+			<button ng-click="order = 'priority'" style="text-align:center"> Priority </button>	
+	</div>
+ 
+<!-- ================================================================================================================ -->
+
+<!-- 	<label>Priority</label>
+	<select ng-model="newItem.priority">
+			<option>low</option>
+			<option>high</option>
+	</select> -->
+
+
+</form>
+
+<!-- ================================================================================================================ -->
+
+<!-- ================================================================================================================ -->
+<!-- HEADER OF TABLE -->
+
+<!-- <p>{{list}}</p> -->
+<!-- <h3>Shopping List</h3>	 -->
+	<div class="list" style= "position: relative; bottom: 40px">
+		<table border="0" cellspacing="0">
+		    <tr class="table-header">
+		        <th class="left" style="position: relative"></th>
+		        <th class="left" style="position: relative">Item Name</th>
+		        <th class="left" style="position: relative">Shop</th>
+		        <th class="center" style="position: relative">Price</th>
+		        <th>Quantity</th>
+		        <th class="center">Delete</th>
+		    </tr>
+	</div>
+<!-- ================================================================================================================ -->
+<!-- INPUT-->
+
+	<div style= "text-align: center">
+	<!-- 	 <h4 style= "text-align: center"></h4> -->	
+			<tr ng-repeat="item in items | orderBy: order">	
+						<td><input ng-show="!item.checked" ng-checked="item.checked" ng-click="add(item, list)" type='checkbox' checklist-value="item.checked"></td>
+						<td item:>{{item.name}} </td>
+						<td store:> {{item.store}} </td>
+						<td price:> {{item.price | currency:"$"}}</td>
+						<td qty:> {{item.quantity}} </td>
+						<td priority:> {{item.priority}} </td>
+						<td><button id= "remove" ng-click="removeItem(item)"><b><i class="icon fa fa-trash"></i></button></td> 
+			</tr>
+	</div>
+</table>
+<!-- ================================================================================================================ -->
+<!-- CLEAR SHOPPING LIST -->
+
+
+
+
+
+<!-- 
+  	<div ng-hide="list.length" class="center">Your shopping list is empty.</div>
+		<div class="cost cf">
+		    <span class="left">Total Cost:</span>
+		    <span class="right" ng-class="{total: length!==0}">{{getTotal() | currency}}</span>
+		           <button class="clear" ng-click="clearAll(list)">Clear Shopping List</button>
+		</div>
+		      
+		   
+		      
+	</div>
+</div>
+			   -->    
+
+		<!-- <button ng-click="removeAll()" style="text-align:center; top: -50px">Clear List</button> -->
+
+
+
+<!-- of course, you should move the inline CSS style to your stylesheet -->
+<!-- main container, width = 70% of page, centered -->
+<!-- <div id="contentBox" style="margin:0px auto; width:70%">
+	<tr ng-repeat="item in items | orderBy: order">	
+ <!columns divs, float left, no margin so there is no space between column, width=1/3 -->
+  <!--   <div id="column1" style="float:left; margin:0; width:33%;">
+     <td><input ng-show="!item.checked" ng-checked="item.checked" ng-click="add(item, list)" type='checkbox' checklist-value="item.checked"></td>
+    </div>
+
+    <div id="column2" style="float:left; margin:0;width:33%;">
+     <td item:>{{item.name}} </td>
+    </div>
+
+    <div id="column3" style="float:left; margin:0;width:33%">
+     <td store:> {{item.store}} </td>
+    </div>
+
+     <div id="column3" style="float:left; margin:0;width:33%">
+     <td price:> {{item.price | currency:"$"}}</td>
+    </div>
+
+     <div id="column3" style="float:left; margin:0;width:33%">
+     <td qty:> {{item.quantity}} </td>
+    </div>
+
+     <div id="column3" style="float:left; margin:0;width:33%">
+     <td priority:> {{item.priority}} </td>
+    </div>
+
+    <div id="column3" style="float:left; margin:0;width:33%">
+    <td><button id= "remove" ng-click="removeItem(item)"><b><i class="icon fa fa-trash"></i></button></td> 
+    </div>
+</div>
+
+
+
+	<div style= "text-align: center">
+	<! 	 <h4 style= "text-align: center"></h4> -->	
+			
+						
+						
+					
+						
+						
+<!-- 						
+						<td><button id= "remove" ng-click="removeItem(item)"><b><i class="icon fa fa-trash"></i></button></td> 
+			</tr>
+	</div>
+</table>  -->
