@@ -4,5 +4,5 @@ angular.module('myApp')						// connects to index.html
 								'ShoppingListItems', 
 								function($scope, ShoppingListItems){
 								var home = $scope;
-								home.items = ShoppingListItems.getList();
+								$scope.items = ShoppingListItems.getList();
 }]);

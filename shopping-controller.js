@@ -27,7 +27,7 @@ angular.module('myApp')
 	shoplist.removeAll = function(){
 		shoplist.items = [];
 		shoplistitems.removeAll();
-		// shoplist.items.length= 0;
+		shoplist.items.length= 0;
 		// shoplist.items.splice(0, shoplist.items.length); ***This will also work!***
 		
 

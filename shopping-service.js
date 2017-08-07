@@ -1,6 +1,6 @@
 angular.module('myApp')
 
-.factory('ShoppingListItems', function(){
+.factory('ShoppingListItems', function(){		// factory or service
 	var items = [];
 	function getList(){
 		return items;

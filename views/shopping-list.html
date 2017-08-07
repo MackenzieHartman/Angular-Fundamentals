@@ -209,7 +209,7 @@ The <p> tag
 		</div>
 
 		<div class="dollar half" style="position: relative; left: 5%; bottom: 12px">
-			<input type="number" class="searchButton" name="Currency" min="0" max="9999" step="0.01" size="35" style="width: 12em; text-align:center" placeholder="$ Price (each)" ng-model="newItem.price">
+			<input type="number" class="searchButton" name="Currency" min="0" max="9999" step="0.01" size="35" style="width: 10.5em; text-align:center" placeholder="$ Price (each)" ng-model="newItem.price">
 		</div>
 
 		<div class="half margin-right" style="position: relative; left: 45%; bottom: 60px">
@@ -229,7 +229,13 @@ The <p> tag
 		<h4 style= "position: relative; bottom: 52px"> Order By </h4>
 			<button ng-click="order = 'item name'" style="text-align:center"> Item </button>	
 			<button ng-click="order = 'store'" style="text-align:center"> Store </button>
-			<button ng-click="order = 'priority'" style="text-align:center"> Priority </button>	
+			<button ng-click="order = 'priority'" style="text-align:center"> Priority </button>
+			<!-- <button ng-click="order = 'qty'" > Order by Quantity</button> -->
+				
+
+			
+
+
 	</div>
  
 <!-- ================================================================================================================ -->
@@ -250,41 +256,45 @@ The <p> tag
 
 <!-- <p>{{list}}</p> -->
 <!-- <h3>Shopping List</h3>	 -->
-	<div class="list" style= "position: relative; bottom: 40px">
-		<table border="0" cellspacing="0">
+	<center>
+	<div class="list" style="width:500px">
+		<table>
 		    <tr class="table-header">
-		        <th class="left" style="position: relative"></th>
-		        <th class="left" style="position: relative">Item Name</th>
-		        <th class="left" style="position: relative">Shop</th>
-		        <th class="center" style="position: relative">Price</th>
-		        <th>Quantity</th>
-		        <th class="center">Delete</th>
+		        <!-- <th class="left" style="position: relative"></th> -->
+		        <th class="center" style="width:100px; position:relative">Item Name</th>
+		        <th class="center" style="width:100px; position: relative">Shop</th>
+		        <th class="center" style="width:100px; position: relative">Price</th>
+		        <th class="center" style="width:100px; position: relative">Quantity</th>
+		        <th class="center" style="width:100px; position: relative">Delete</th>
 		    </tr>
-	</div>
+		<!-- </table> -->
+	<!-- </div> -->
 <!-- ================================================================================================================ -->
 <!-- INPUT-->
-
-	<div style= "text-align: center">
-	<!-- 	 <h4 style= "text-align: center"></h4> -->	
+<!-- 
+	<div class="list" style= "width:500px"> -->
+	 <!-- 	<table border="0" cellspacing="0">	 -->
 			<tr ng-repeat="item in items | orderBy: order">	
-						<td><input ng-show="!item.checked" ng-checked="item.checked" ng-click="add(item, list)" type='checkbox' checklist-value="item.checked"></td>
-						<td item:>{{item.name}} </td>
-						<td store:> {{item.store}} </td>
-						<td price:> {{item.price | currency:"$"}}</td>
-						<td qty:> {{item.quantity}} </td>
-						<td priority:> {{item.priority}} </td>
-						<td><button id= "remove" ng-click="removeItem(item)"><b><i class="icon fa fa-trash"></i></button></td> 
+						<!-- <td><input ng-show="!item.checked" ng-checked="item.checked" ng-click="add(item, list)" type='checkbox' checklist-value="item.checked"></td>-->
+						<td item: style="width:100px; position: relative">{{item.name}} </td>
+						<td store: style="width:100px; position: relative"> {{item.store}} </td>
+						<td price: style="width:100px; position: relative"> {{item.price | currency:"$"}}</td>
+						<td qty: style="width:100px; position: relative"> {{item.qty}} </td>
+						<!-- <td priority: style="width:100px; position: relative"> {{item.priority}} </td> -->
+						<td><button id= "remove" ng-click="removeItem(item)" style="width:100px; margin-top:135px;">X</button></td> 
 			</tr>
+		</table>
 	</div>
-</table>
+	<center>
+
 <!-- ================================================================================================================ -->
 <!-- CLEAR SHOPPING LIST -->
 
 
 
-
-
 <!-- 
+
+
   	<div ng-hide="list.length" class="center">Your shopping list is empty.</div>
 		<div class="cost cf">
 		    <span class="left">Total Cost:</span>
@@ -296,9 +306,9 @@ The <p> tag
 		      
 	</div>
 </div>
-			   -->    
-
-		<!-- <button ng-click="removeAll()" style="text-align:center; top: -50px">Clear List</button> -->
+			      
+ -->
+		<button ng-click="removeAll()" style="text-align:center; top: 50px">Clear List</button>
 
 
 
@@ -345,8 +355,8 @@ The <p> tag
 						
 					
 						
-						
 <!-- 						
+						
 						<td><button id= "remove" ng-click="removeItem(item)"><b><i class="icon fa fa-trash"></i></button></td> 
 			</tr>
 	</div>

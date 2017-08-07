@@ -3,8 +3,12 @@ nav ul {
 	margin: 00 10px 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
+	background-color: #111;
 	text-align: center
+  margin: 30px;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
 nav li {
@@ -20,50 +24,37 @@ nav li a {
 }
 
 nav li a:hover {
-	background-color: #111;
+	background-color: #333;
 }
 
 li {
 	list-style: none;				removes bullet points from list
 }
 
-/*button {
-	border-radius: 5px;
-	border: 1px solid #d3d3d3;
-	background-color: white;
-	color: #333;
-}
-
-button:hover {
-	cursor: pointer;
-}*/
- 
  #remove {
  	background-color: transparent;	
  	border: none;
- 	color: #AA0000;
+ 	color: black;
  	font-size: 	14px;
  }
 
  /*===============================================================================================================*/
 
-@import "compass/css3";
-
 *, *:before, *:after {
   @include box-sizing(border-box);
 }
 
-$red: #fb887c;
-$green: #AFC7B9;
-$navy: #34495e;
+body{
+  background-image: url(/img/bags.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top
+}
 
-@import url("https://www.markmurray.co/codepen/customstyle.css"), url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
-
-html, body {
-  background: $green;
+html{
   font-family: 'Lato', sans-serif;
-  height: 100%;
   padding: 1em;
+  background-repeat: no-repeat;
 }
 
 .left { text-align: left!important }
@@ -103,7 +94,7 @@ table {
   width: 100%;
   margin: 0.5em 0 1em;
   
-  tr.table-header {
+tr.table-header {
     td {
       font-size: 0.7em;
       font-weight: bolder;
@@ -113,13 +104,12 @@ table {
   td {
     padding: 0.75em 0.5em;
     text-align: center;
-display:table-cell;
-vertical-align:middle;
+    display:table-cell;
+    vertical-align:middle;
   }
   
   td:first-child {
     text-align: left;
-
   }
   
   td:nth-child(3){
@@ -152,15 +142,12 @@ vertical-align:middle;
   color: #D0CCCC;
 }
 
-
 .margin-right {
   margin-right: 1%;
 }
 
 .half {
   width: 49.5%;
-
-/*  display: inline-block;*/
   
   input {
     width: 100%;
@@ -174,11 +161,6 @@ vertical-align:middle;
 .selected {
   text-decoration: line-through;
   color: #aaa;
-}
-
-.dollar {
-/*  position: relative;
-  display: inline-block;*/
 }
 
 .dollar input {
@@ -231,7 +213,6 @@ button.clear:hover {
 
 button {
   margin: 0.25em 0;
- /* display: block;*/
   outline: none;
   background: $red;
   border: none;
@@ -251,7 +232,6 @@ button {
       margin-bottom: 0.9em;
       @include box-shadow(inset 0 0 10px 0px rgba(black, 0.2));
     }
-  
 }
 
 .cost {
@@ -271,8 +251,7 @@ button {
   }
 }
 
-.total {
-  
+.total { 
   background: $red;
   color: white;
   font-weight: bolder;
@@ -316,8 +295,6 @@ i.delete {
   }
 }
 
-
-
 /* Clearfix */
 .cf:before,
 .cf:after {
@@ -327,4 +304,8 @@ i.delete {
 
 .cf:after {
     clear: both;
+}
+
+#shopping-list{
+  overflow: hidden;
 }
